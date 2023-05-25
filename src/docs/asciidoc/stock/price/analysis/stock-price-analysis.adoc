@@ -1,0 +1,24 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= StockPriceAnalysis
+
+== [small]#단건 주식 조회 및 저장#
+[red big]#Overview#
+----
+전달 받은 finance entrypoint를 가져와 일 단위 데이터를 저장 및 응답하는 API 입니다.
+----
+
+[red big]#HTTP request#
+include::{snippets}/stock/price/analysis/http-request.adoc[]
+
+[red big]#HTTP response#
+include::{snippets}/stock/price/analysis/http-response.adoc[]
+
+[red big]#Path parameters#
+include::{snippets}/stock/price/analysis/path-parameters.adoc[]
+
+[red big]#Response fields#
+include::{snippets}/stock/price/analysis/response-fields.adoc[]
+

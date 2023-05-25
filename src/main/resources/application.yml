@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: domino-finance
+  profiles:
+    active: standalone
+feign:
+  httpclient:
+    disableSslValidation: true
+  client:
+    config:
+      default:
+        connect-timeout: 30000
+        read-timeout: 30000
+        loggerLevel: FULL
+logging:
+  level:
+    com.domino.finance: debug
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+    org.hibernate.orm.jdbc.bind: trace
+---
+spring:
+  config:
+    activate:
+      on-profile: standalone
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/test;MODE=MySQL
+    username: sa
+    password:
+  jpa:
+    hibernate.ddl-auto: 'create-drop'
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+external:
+  host:
+    sample: https://query1.finance.yahoo.com
+  api:
+    sample:
+      self: ${external.host.sample}/v8
